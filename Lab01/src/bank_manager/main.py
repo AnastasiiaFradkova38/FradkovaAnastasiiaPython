@@ -1,5 +1,6 @@
 from bank_manager.models import Account
 from bank_manager.services import top_up, withdraw, check_balance, find_account, calculate_total_sum
+from bank_manager.exceptions import InsufficientFundsError
 
 def create_accounts() -> list[Account]:
     return [
@@ -24,17 +25,18 @@ def main() -> None:
     print()
     
     print("FAILED WITHDRAWAL")
-    withdrawal = withdraw(accounts[0], 100.0)
-    if not withdrawal:
-        print("Error! Balance cannot be negative.")
-        print_account_info(accounts[0])
+    try:
+        accounts[0] = withdraw(accounts[0], 100.0)
+    except InsufficientFundsError as e:
+        print(e)
     print()
     
     print("SUCCESSFUL WITHDRAWAL")
-    withdrawal = withdraw(accounts[0], 3.0)
-    if withdrawal:
-        accounts[0] = withdrawal
+    try:
+        accounts[0] = withdraw(accounts[0], 20.0)
         print_account_info(accounts[0])
+    except InsufficientFundsError as e:
+        print(e)
     print()
 
     print("ACCOUNT SEARCH")
