@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bank-manager"
+version = "0.1.0"
+description = "Bank accounts management laboratory project"
+requires-python = ">=3.11"
+
+[project.scripts]
+bank-manager = "bank_manager.main:main"
