@@ -1,1 +1,3 @@
 bank_manager
+data_processor
+stream_processor

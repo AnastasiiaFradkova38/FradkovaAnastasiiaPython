@@ -1,5 +1,5 @@
 Metadata-Version: 2.4
 Name: bank-manager
-Version: 0.1.0
-Summary: Bank accounts management laboratory project
+Version: 0.3.0
+Summary: Bank accounts management and streaming data processing
 Requires-Python: >=3.11

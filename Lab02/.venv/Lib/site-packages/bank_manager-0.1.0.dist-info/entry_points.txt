@@ -1,2 +1,0 @@
-[console_scripts]
-bank-manager = bank_manager.main:main
